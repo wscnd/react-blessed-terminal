@@ -1,38 +1,59 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import blessed from 'blessed';
 import { render } from 'react-blessed';
+import { Grid } from 'react-blessed-contrib';
 
 import Box from './components/Box';
 import Today from './components/Today';
 
 const App = () => {
   return (
-    <Fragment>
+    <Grid rows={12} cols={12}>
       <Today
-        style={{
-          top: 0,
-          left: 0,
-          width: "50%",
-          height: "50%",
-          border: { type: "line" },
-          style: { border: { fg: "red" } },
-        }}
-        fetchWeatherInterval={5000}
+        label="Today"
+        row={0}
+        col={0}
+        rowSpan={6}
+        colSpan={6}
+        fetchWeatherInterval={5000} //
       />
       <Box
         label="Recent Commits"
-        top={0}
-        left="50%"
-        width="50%"
-        height="50%"
-      ></Box>
-
-      <Box label="Diff" top="50%" left={0} width="50%" height="50%"></Box>
-      <Box label="Pomodoro" top="50%" left="50%" width="25%" height="50%"></Box>
-      <Box label="Branches" top="50%" left="50%" width="25%" height="50%"></Box>
-      <Box label="Remote" top="50%" left="75%" width="25%" height="50%"></Box>
-    </Fragment>
+        row={6}
+        col={0}
+        rowSpan={6}
+        colSpan={3} //
+      />
+      <Box
+        label="Diff"
+        row={6}
+        col={3}
+        rowSpan={6}
+        colSpan={3} //
+      />
+      <Box
+        label="Pomodoro"
+        row={0}
+        col={6}
+        rowSpan={6}
+        colSpan={6} //
+      />
+      <Box
+        label="Branches"
+        row={6}
+        col={6}
+        rowSpan={6}
+        colSpan={3} //
+      />
+      <Box
+        label="Remote"
+        row={6}
+        col={9}
+        rowSpan={6}
+        colSpan={3} //
+      />
+    </Grid>
   );
 };
 

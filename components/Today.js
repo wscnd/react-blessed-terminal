@@ -17,16 +17,15 @@ import Box from './Box';
 
 const Today = ({
   fetchWeatherInterval = 900000,
-  style = {
-    label: "Today",
-    top: "center",
-    left: "center",
-    width: "50%",
-    height: "50%",
-  },
+  top,
+  left,
+  width,
+  height,
   search = "Nashvile, TN",
   degreeType = "C",
 }) => {
+  const boxStyle = { top, left, width, height };
+  // console.log("style", style);
   const [fontIndex, setFontIndex] = React.useState(0);
   const [timeNow, setTimeNow] = React.useState(new Date());
   const weather = useRequest({
@@ -63,7 +62,7 @@ const Today = ({
   );
 
   return (
-    <Box label="Today" {...style}>
+    <Box label="Today" {...boxStyle}>
       <text top={1} right={2}>
         {chalk.blue(todayDate)}
       </text>
